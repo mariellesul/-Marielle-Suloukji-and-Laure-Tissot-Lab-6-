@@ -53,10 +53,13 @@ print(pd.crosstab(our_data["High Income Economy"], our_data["Region"]))
 # They come from Europe has the highest number for 1)
 
 ############### 9 ###############################################
+# We can do this without a loop
 # Can you tell me how many countries there are where women can expect to live for more than 80 years? And which countries those are?
 filtered_data = our_data[our_data["Life expectancy, female"] > 80]
-for i in range (len(filtered_data)):
-    if our_data [i, "Life expectancy, female"] > 80:
-        print ("Coutry")
-    
+# Count how many countries meet this condition
+count_countries = filtered_data["Country Name"].nunique()
+print("Number of countries where female life expectancy > 80 years:", count_countries)
+print("These countries are:")
+print(filtered_data["Country Name"].unique())
+# There are 66 countries where woman can expect to live more then 80 years. 
     
