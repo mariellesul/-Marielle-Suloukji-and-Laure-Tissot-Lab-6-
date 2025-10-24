@@ -1,6 +1,6 @@
 #################### Part 3 ######################################
-import seaborn as snb
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 ##################### 1 ##########################################
 # Our three questions:
 # 1) Does the region born effect female life expectancy?
@@ -62,4 +62,17 @@ print("Number of countries where female life expectancy > 80 years:", count_coun
 print("These countries are:")
 print(filtered_data["Country Name"].unique())
 # There are 66 countries where woman can expect to live more then 80 years. 
+
+##################################### Part 4 #################################################
+
+############### 1 ##################################################
+#1) Is there any association between GNI per capita and Life expectancy?
+sns.relplot (data= our_data, x="GNI_per_capita", y="Life expectancy, female")
+hue = "Region" #color for each region
+plt.title("GNI per capita vs Life Expectancy")
+plt.show()
+
+###########
+
+
     
