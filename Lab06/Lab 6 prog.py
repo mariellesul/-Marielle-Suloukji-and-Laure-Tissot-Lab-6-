@@ -122,8 +122,6 @@ plt.ylabel("Life expectancy, female")
 plt.xscale("log")  
 plt.show()
 
-              
-
 ############ 5 ##############################################################
 
 ####Relationship life expectancy and greenhouse gas
