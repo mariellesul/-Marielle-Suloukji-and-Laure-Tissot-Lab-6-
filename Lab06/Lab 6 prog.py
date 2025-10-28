@@ -63,12 +63,10 @@ print("These countries are:")
 print(filtered_data["Country Name"].unique())
 # There are 66 countries where woman can expect to live more then 80 years. 
 
-
                          ######## PART 4 #########
                          
-#4
+#question4
 import matplotlib.pyplot as plt
-
 
 #5
 
