@@ -67,12 +67,56 @@ print(filtered_data["Country Name"].unique())
 
 ############### 1 ##################################################
 #1) Is there any association between GNI per capita and Life expectancy?
-sns.relplot (data= our_data, x="GNI_per_capita", y="Life expectancy, female")
-hue = "Region" #color for each region
+sns.relplot (data= our_data, 
+             x="GNI_per_capita", 
+             y="Life expectancy, female",
+             hue = "Region",  # gives color  to the points from diffrent regions
+)
 plt.title("GNI per capita vs Life Expectancy")
 plt.show()
 
-###########
+########### 2 ########################################################
+# 2) By adding a third “feature” to your plot using colors to represent it in order to answer the following question: “Does the association between GNI per capita and life expectancy vary by region?
+# The third feature is size = population
+sns.relplot( data=our_data, 
+            x="GNI_per_capita", 
+            y="Life expectancy, female", 
+            hue="Region",        # gives color to the points from diffrent regions
+            size="Population",    # bubble size for population
+)
+plt.title("GNI per Capita vs Life Expectancy by Region and Population Sizes")
+plt.xlabel("GNI per capita ")
+plt.ylabel("Life Expectancy, female")
+plt.xscale("log") # this will change our x axis to a logarithmic scale instead of a linear scale to help see the pattern better. When plotting it, the result was very compresed. So with log, it will be less compressed by spreading out the smaller values and compressing thee larger ones.
+plt.show()
 
+############ 3 ##############################################################
+#3)Generate a the plot from item 2, now using lines along with standard deviation.
+sns.lineplot(
+    data=our_data,
+    x="GNI_per_capita",
+    y="Life expectancy, female",
+    hue="Region",   
+    errorbar="sd", # standard deviation 
+)
+plt.title("GNI per Capita vs Life Expectancy with a Standard Deviation")
+plt.xlabel("GNI per capita")
+plt.ylabel("Life expectancy, female")
+plt.xscale("log")  # same thing explained at the top 
+plt.show()
+
+########## 4 ####################################################################
+# 4)  Use the lmplot() function to generate a linear regression for the previous plot.
+sns.lmplot (
+    data=our_data,
+    x="GNI_per_capita",
+    y="Life expectancy, female",
+    hue="Region",
+)
+plt.title("Linear Regression: GNI per Capita vs Life Expectancy ")
+plt.xlabel("GNI per capita")
+plt.ylabel("Life expectancy, female")
+plt.xscale("log")  
+plt.show()
 
     
