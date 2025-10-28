@@ -72,7 +72,7 @@ sns.relplot (data= our_data,
              y="Life expectancy, female",
              hue = "Region",  # gives color  to the points from diffrent regions
 )
-plt.title("GNI per capita how it effects Life Expectancy")
+plt.title("GNI per capita and its realtionship with Life Expectancy")
 plt.show()
 
 ########### 2 ########################################################
@@ -84,7 +84,7 @@ sns.relplot( data=our_data,
             hue="Region",        # gives color to the points from diffrent regions
             size="Population",    # bubble size for population
 )
-plt.title("GNI per Capita how it effects Life Expectancy by Region and Population Sizes")
+plt.title("GNI per capita hand its realationship with Life Expectancy by Region and Population Sizes")
 plt.xlabel("GNI per capita ")
 plt.ylabel("Life Expectancy, female")
 plt.xscale("log") # this will change our x axis to a logarithmic scale instead of a linear scale to help see the pattern better. When plotting it, the result was very compresed. So with log, it will be less compressed by spreading out the smaller values and compressing thee larger ones.
@@ -100,7 +100,7 @@ sns.lineplot(
     hue="Region",   
     errorbar="sd", # standard deviation 
 )
-plt.title("GNI per Capita how it effects Life Expectancy with a Standard Deviation")
+plt.title("GNI per capita and its realtionship with Life Expectancy (with a Standard Deviation)")
 plt.xlabel("GNI per capita")
 plt.ylabel("Life expectancy, female")
 plt.xscale("log")  # same thing explained at the top 
@@ -114,7 +114,7 @@ sns.lmplot (
     y="Life expectancy, female",
     hue="Region",
 )
-plt.title("Linear Regression: GNI per Capita how it effects Life Expectancy ")
+plt.title(" GNI per capita  and its relationship with Life Expectancy (with a linear regression) ")
 plt.xlabel("GNI per capita")
 plt.ylabel("Life expectancy, female")
 plt.xscale("log")  
