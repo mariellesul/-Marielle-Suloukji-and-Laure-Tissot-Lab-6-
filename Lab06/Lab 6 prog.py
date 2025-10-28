@@ -1,5 +1,5 @@
 #################### Part 3 ######################################
-import seaborn as snb
+import seaborn as sns
 
 ##################### 1 ##########################################
 # Our three questions:
@@ -62,4 +62,46 @@ print("Number of countries where female life expectancy > 80 years:", count_coun
 print("These countries are:")
 print(filtered_data["Country Name"].unique())
 # There are 66 countries where woman can expect to live more then 80 years. 
-    
+
+
+                         ######## PART 4 #########
+                         
+#4
+import matplotlib.pyplot as plt
+
+
+#5
+
+###Is life expectancy dependant on greenhouse gaz emissions and will relationship with high income
+#sns.relplot(data=our_data , x="Life expectancy, female" , y="Greenhouse gas emissions" , hue="High Income Economy")
+#plt.title("Female life expectancy vs Greenhouse gas emissions")
+#sns.relplot(data=our_data , x="Life expectancy, male" , y="Greenhouse gas emissions" , hue="High Income Economy")
+#plt.title("Male life expectancy vs Greenhouse gas emissions")
+
+####Relationship life expectancy and greenhouse gas
+sns.relplot(data=our_data , x="Life expectancy, female" , y="Greenhouse gas emissions" , kind="scatter")
+plt.title("Female life expectancy vs Greenhouse gas emissions")
+plt.show()
+sns.relplot(data=our_data , x="Life expectancy, male" , y="Greenhouse gas emissions" , kind="scatter")
+plt.title("Male life expectancy vs Greenhouse gas emissions")
+plt.show()
+#6
+
+##a)
+our_data["emissions_per_capita"] = (our_data["Greenhouse gas emissions"] / our_data["Population"])
+sns.lmplot(data=our_data , x="emissions_per_capita" , y="Internet use") #to look at a linear regression relationship
+sns.relplot(data=our_data , x="emissions_per_capita" , y="Internet use" , kind="scatter") #only a scatter plot relationship
+plt.title("Emissions per capita vs Internet use")
+
+##b)
+filtered_values_for_emissions = our_data[our_data['emissions_per_capita'] > 0.03]
+print(filtered_values_for_emissions ['Country Name'])
+#for index, row in filtered_values_for_emissions.iterrows():
+    #print("Countries with high emissions are ",  row['Country Name'])
+
+
+##c)
+our_data["emissions_per_capita"] = (our_data["Greenhouse gas emissions"] / our_data["Population"])
+sns.relplot(data=our_data , x="emissions_per_capita" , y="Internet use" , kind="scatter" , hue="Region") #only a scatter plot relationship
+plt.title("Emissions per capita vs Internet use")
+
