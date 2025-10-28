@@ -92,6 +92,7 @@ plt.show()
 
 ############ 3 ##############################################################
 #3)Generate a the plot from item 2, now using lines along with standard deviation.
+# Why can't you see the area representing a standard deviation in the plot? Answer in repport.
 sns.lineplot(
     data=our_data,
     x="GNI_per_capita",
